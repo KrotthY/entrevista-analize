@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <div class="row mt-5">
+  <div class="container  mt-5">
+    <div class="row">
         <div class="col text-lef">
-            <h2>Listado de Auto</h2>
+            <h2>Vista de Automoviles</h2>
         </div>
     </div>
 
@@ -21,49 +21,37 @@
       </div>
     </div>
   </div>
-    
-
-
-
 </template>
 
 <script>
 
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
-  name:'ListAuto',
+  name: 'ListAuto',
 
   data () {
-
     return {
-      
-      autos:[]
+      autos: []
     }
   },
 
-  methods:{
-
-    getAutos (){
-
+  methods: {
+    getAutos () {
       const ruta = 'http://127.0.0.1:8000/api/v1.0/autos/'
-      axios.get(ruta).then((response) =>{
-        
+      axios.get(ruta).then((response) => {
         this.autos = response.data
       })
-      .catch(err => console.log(err))
-
+        .catch(err => console.log(err))
     }
   },
 
-  created(){
-
+  created () {
     this.getAutos()
-  },
+  }
 
 }
 </script>
 
 <style>
-
 </style>

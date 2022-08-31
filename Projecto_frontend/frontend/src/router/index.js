@@ -1,26 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ListAuto from '@/components/Auto/ListAuto'
+import VistaAuto from '@/components/Auto/VistaAuto'
 import EditAuto from '@/components/Auto/EditAuto'
-
-
+import ListaAuto from '@/components/Auto/ListaAuto'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'VistaAuto',
+    component: VistaAuto
+  },
+
+  {
+    path: '/lista',
+    name: 'ListaAuto',
+    component: ListaAuto
   },
   {
-    path: '/autos',
-    name: 'ListAuto',
-    component: ListAuto
-  },
-  {
-    path: '/autos/edit',
+    path: '/editar/:id',
     name: 'EditAuto',
     component: EditAuto
-  },
+  }
 ]
 
 const router = createRouter({
