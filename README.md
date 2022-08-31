@@ -41,7 +41,7 @@ _Ejecutar el archivo requirements_
 pip install -r requirements.txt
 
 ```
-_Ejecutar el comando migrate seguido del makemigrations _
+_Ejecutar el comando migrate seguido del makemigrations_
 
 ```
 python ./manage.py migrate
