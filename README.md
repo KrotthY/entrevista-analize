@@ -55,7 +55,7 @@ python ./manage.py runserver
 
 ```
 
-_Descargar carpeta Projecto frontend, _
+_Descargar carpeta Projecto frontend,_
 _bajar un nivel  "cd frontend"_ 
 _levantando la vista del proyecto y el servidor_
 
