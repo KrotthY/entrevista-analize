@@ -16,7 +16,25 @@
             <div class="form-group row">
               <label for="marca" class="col-sm-3 col-form-label font-weight-bold">Marca</label>
               <div class="col">
-                <input type="text" name="marca" class="form-control" placeholder="Marca" v-model.trim="form.marca">
+                <input type="text" name="marca" class="form-control" placeholder="Marca del vehiculo" v-model.trim="form.marca">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="modelo" class="col-sm-3 col-form-label font-weight-bold">Modelo</label>
+              <div class="col">
+                <input type="text" name="modelo" class="form-control" placeholder="Tipo de modelo del vehiculo" v-model.trim="form.modelo">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="color" class="col-sm-3 col-form-label font-weight-bold">Color</label>
+              <div class="col">
+                <input type="text" name="color" class="form-control" placeholder="Colores Disponibles" v-model.trim="form.color">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="precio" class="col-sm-3 col-form-label font-weight-bold">Precio</label>
+              <div class="col">
+                <input type="text" name="precio" class="form-control" placeholder="Precio de venta" v-model.trim="form.precio">
               </div>
             </div>
             <div class="form-group row">
@@ -50,6 +68,9 @@ export default {
       form: {
         idAuto: '',
         marca: '',
+        modelo: '',
+        precio: '',
+        color: '',
         descripcion: ''
       }
     }
@@ -62,7 +83,8 @@ export default {
     editar () {
       const ruta = `http://127.0.0.1:8000/api/v1.0/autos/${this.form.idAuto}/`
       axios.put(ruta, this.form).then((response) => {
-        console.log(response)
+        alert('Registro actualizado Exitosamente')
+        this.$router.push({ name: 'ListaAuto' })
       })
         .catch(err => console.log(err))
     }
@@ -73,7 +95,10 @@ export default {
     const ruta = `http://127.0.0.1:8000/api/v1.0/autos/${this.form.idAuto}/`
     axios.get(ruta).then((response) => {
       this.form.marca = response.data.marca
+      this.form.modelo = response.data.modelo
+      this.form.precio = response.data.precio
       this.form.descripcion = response.data.descripcion
+      this.form.color = response.data.color
     })
       .catch(err => console.log(err))
   }

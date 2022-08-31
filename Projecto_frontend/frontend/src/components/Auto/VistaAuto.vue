@@ -2,20 +2,24 @@
   <div class="container  mt-5">
     <div class="row">
         <div class="col text-lef">
-            <h2>Vista de Automoviles</h2>
+            <h2>Vista previa de Automoviles</h2>
+            <br>
+            <button class="btn btn-sm btn-primary" @click="crear">Crear Tarjeta de automovil</button>
         </div>
     </div>
-
+    <br>
     <div class="row"  >
-      <div class="col-md-4 col-xs-12 mt-3" v-for="auto  of autos" v-bind:key="auto">
+      <div class="col-lg-4 col-md-4 col-xs-12 mt-3" v-for="auto  of autos" v-bind:key="auto">
         <div class="card " style="width: 18rem; background-color: aliceblue;">
           <div class="card-body">
-            <h5 class="card-title">Marca {{ auto.marca }}</h5>
-            <img src="" alt="cossa">
+            <h5 class="card-title">{{ auto.marca }} | {{ auto.modelo }}</h5>
+            <img src="" alt="Error en cargar">
             <br>
-            <p class="card-text"><b>Descripcion </b> </p>
+            <p class="card-text"><b>Colores disponibles: </b> {{auto.color }}</p>
+<p class="card-text"><b>Precio: </b>${{ Intl.NumberFormat().format(auto.precio)  }}</p>
+            <p class="card-text"><b>Descripcion: </b> </p>
             <p>{{auto.descripcion }}</p>
-            <a href="#" class="btn btn-primary">Ver</a>
+            <a href="#" class="btn btn-sm btn-primary" @click="verLista">Ver lista Autos</a>
           </div>
         </div>
       </div>
@@ -43,6 +47,13 @@ export default {
         this.autos = response.data
       })
         .catch(err => console.log(err))
+    },
+
+    verLista () {
+      this.$router.push('/lista')
+    },
+    crear () {
+      this.$router.push('/crear')
     }
   },
 
