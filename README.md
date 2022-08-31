@@ -32,7 +32,7 @@ python3 -m venv env   /* ubuntu - macs */
 _Activar el ambiente virtual_
 
 ```
-ubicacion-env/Scripts/activate  /* windows */
+ubicacion-env\Scripts\activate   /* windows */
 source env/bin/activate   /* ubuntu - macs */
 ```
 _Ejecutar el archivo requirements_
